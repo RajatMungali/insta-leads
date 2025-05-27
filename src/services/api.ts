@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { InstagramProfile, SearchParams, SearchResponse } from '../types';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 /**
  * Search for Instagram profiles based on city and keyword
  */
 export async function searchInstagramProfiles(params: SearchParams): Promise<SearchResponse> {
   try {
-    const response = await axios.post(`${API_URL}/search`, params);
+    const response = await axios.post(`${API_URL}/api/search`, params);
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -24,7 +24,7 @@ export async function searchInstagramProfiles(params: SearchParams): Promise<Sea
  */
 export async function checkApiHealth(): Promise<boolean> {
   try {
-    const response = await axios.get(`${API_URL}/health`);
+    const response = await axios.get(`${API_URL}/api/health`);
     return response.data.status === 'ok';
   } catch (error) {
     return false;
