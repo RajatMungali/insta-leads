@@ -9,7 +9,8 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 export async function searchInstagramProfiles(params: SearchParams): Promise<SearchResponse> {
   try {
     
-    const response = await axios.post(`http://localhost:3001/api/search`, params);
+    const response = await axios.post(`${API_URL}/api/search`, params);
+
 
     return response.data;
   } catch (error) {
