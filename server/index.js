@@ -3,7 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import fs from 'fs/promises';
 import { fetchInstagramProfiles } from './services/serpApiService.js';
-
+//api
 // Load environment variables
 dotenv.config();
 
